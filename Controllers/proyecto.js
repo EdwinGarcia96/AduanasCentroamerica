@@ -15,6 +15,7 @@ const proyectosGet = async (req = request, res = response) => {
             .limit(Number( limite ))*/
   ]);
 
+  console.log(proyectos);
   res.json({
     nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
     total,
@@ -32,25 +33,15 @@ const proyectoInsertGT = async (req, res = response) => {
     paisejecuta: "Guatemala",
     fechacierre: null,
   });
+  // Guardar en BD
 
-  // Verificar si el correo existe
-  const existeCodigo = await Proyecto.findOne({ codigo });
-  if (existeCodigo) {
-    res.json({
-      nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
-      message: "El codigo indicado ya existe",
-    });
-  } else {
-    // Guardar en BD
+  console.log("Insert proyecto Guatemala");
+  await proyecto.save();
 
-    console.log("Insert proyecto Guatemala");
-    await proyecto.save();
-
-    res.json({
-      nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
-      proyecto,
-    });
-  }
+  res.json({
+    nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
+    proyecto,
+  });
 };
 
 const proyectoInsertCR = async (req, res = response) => {
@@ -64,24 +55,15 @@ const proyectoInsertCR = async (req, res = response) => {
     fechacierre,
   });
 
-  // Verificar si el correo existe
-  const existeCodigo = await Proyecto.findOne({ codigo });
-  if (existeCodigo) {
-    res.json({
-      nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
-      message: "El codigo indicado ya existe",
-    });
-  } else {
-    // Guardar en BD
+  // Guardar en BD
 
-    console.log("Insert proyecto Costa Rica");
-    await proyecto.save();
+  console.log("Insert proyecto Costa Rica");
+  await proyecto.save();
 
-    res.json({
-      nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
-      proyecto,
-    });
-  }
+  res.json({
+    nombre: "Edwin Alexis Garcia Guevara 17-29412-2017",
+    proyecto,
+  });
 };
 
 const proyectoUpdate = async (req, res = response) => {

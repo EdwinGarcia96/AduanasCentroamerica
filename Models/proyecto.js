@@ -4,8 +4,7 @@ const { Schema, model } = require('mongoose');
 const ProyectoSchema = Schema({
     codigo: {
         type: String,
-        required: [true, 'El codigo del proyecto es obligatorio'],
-        unique: true
+        required: [true, 'El codigo del proyecto es obligatorio']
     },
     nombreproyecto: {
         type: String,
@@ -28,7 +27,7 @@ const ProyectoSchema = Schema({
 
 
 ProyectoSchema.methods.toJSON = function() {
-    const { __v, codigo, ...proyecto  } = this.toObject();
+    const { __v,  ...proyecto  } = this.toObject();
     return proyecto;
 }
 
